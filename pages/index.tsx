@@ -5,8 +5,6 @@ import styles from "../styles/Home.module.css";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   return {
-    // TODO need to convert the data from firebase into a format next can serialize to JSON
-    //      so leaving this as an example with list name
     props: {
       date: new Date(),
     },
