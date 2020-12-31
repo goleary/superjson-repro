@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 import styles from "../styles/Home.module.css";
 
@@ -11,7 +11,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
-export default function Home() {
+export default function Home(
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,6 +22,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        {props.date.toISOString()}
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
